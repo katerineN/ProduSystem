@@ -23,5 +23,38 @@ namespace ProduSystem
             preconditions = temp[0].Split(',').Select(f => f.Trim(' ')).ToList();
         }
 
+        public bool ComparePr(List<string> pr)
+        {
+            return preconditions.All(f => pr.Contains(f));
+        }
+
+        //Вывод результата
+        public string Print()
+        {
+            string result = "";
+            Form1 form1 = new Form1();
+            //проходимся по всем предпосылкам
+            foreach (var p in preconditions)
+            {
+                result += form1.facts[p].Text;
+                result += (p != preconditions.Last()) ? " , " : "";
+            }
+
+            result += "->" + form1.facts[consequence].Text;
+            return result;
+        }
+
+        /// <summary>
+        /// проверяем правильный ли вывод
+        /// </summary>
+        /// <returns></returns>
+        public string IsWeatherOrCutePhrase()
+        {
+            Form1 form1 = new Form1();
+            string res = "";
+            if (consequence[0] == 'F')
+                res = form1.facts[consequence].Text;
+            return res;
+        }
     }
 }

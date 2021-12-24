@@ -33,7 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.result = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.checkedListBoxC = new System.Windows.Forms.CheckedListBox();
@@ -51,6 +51,8 @@
             this.summary = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ErrorLabel
@@ -69,6 +71,7 @@
             this.button2.TabIndex = 44;
             this.button2.Text = "Запуск";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -88,15 +91,15 @@
             this.label10.TabIndex = 42;
             this.label10.Text = "Вывод";
             // 
-            // textBox2
+            // result
             // 
-            this.textBox2.Location = new System.Drawing.Point(675, 382);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(826, 440);
-            this.textBox2.TabIndex = 41;
+            this.result.Location = new System.Drawing.Point(675, 382);
+            this.result.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.result.Multiline = true;
+            this.result.Name = "result";
+            this.result.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.result.Size = new System.Drawing.Size(826, 440);
+            this.result.TabIndex = 41;
             // 
             // label6
             // 
@@ -121,6 +124,7 @@
             this.checkedListBoxC.Name = "checkedListBoxC";
             this.checkedListBoxC.Size = new System.Drawing.Size(261, 172);
             this.checkedListBoxC.TabIndex = 38;
+            this.checkedListBoxC.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxC_MouseDoubleClick);
             // 
             // label4
             // 
@@ -137,6 +141,7 @@
             this.checkedListBoxP.Name = "checkedListBoxP";
             this.checkedListBoxP.Size = new System.Drawing.Size(261, 172);
             this.checkedListBoxP.TabIndex = 35;
+            this.checkedListBoxP.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxP_MouseDoubleClick);
             // 
             // checkedListBoxZ
             // 
@@ -153,6 +158,7 @@
             this.checkedListBoxS.Name = "checkedListBoxS";
             this.checkedListBoxS.Size = new System.Drawing.Size(355, 172);
             this.checkedListBoxS.TabIndex = 33;
+            this.checkedListBoxS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxS_MouseDoubleClick);
             // 
             // label3
             // 
@@ -177,6 +183,7 @@
             this.checkedListBoxT.Name = "checkedListBoxT";
             this.checkedListBoxT.Size = new System.Drawing.Size(261, 172);
             this.checkedListBoxT.TabIndex = 30;
+            this.checkedListBoxT.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxT_MouseDoubleClick);
             // 
             // label1
             // 
@@ -193,6 +200,7 @@
             this.checkedListBoxM.Name = "checkedListBoxM";
             this.checkedListBoxM.Size = new System.Drawing.Size(261, 172);
             this.checkedListBoxM.TabIndex = 46;
+            this.checkedListBoxM.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxM_MouseDoubleClick);
             // 
             // label7
             // 
@@ -217,7 +225,7 @@
             this.summary.Location = new System.Drawing.Point(655, 38);
             this.summary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.summary.Name = "summary";
-            this.summary.Size = new System.Drawing.Size(505, 184);
+            this.summary.Size = new System.Drawing.Size(232, 184);
             this.summary.TabIndex = 50;
             // 
             // label8
@@ -241,12 +249,34 @@
             this.checkBox1.Text = "Обратный вывод";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(931, 38);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(569, 184);
+            this.listBox1.TabIndex = 53;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(931, 10);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Вывод";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1278, 1044);
+            this.ClientSize = new System.Drawing.Size(1513, 1044);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.summary);
             this.Controls.Add(this.label8);
@@ -257,7 +287,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.checkedListBoxC);
@@ -274,6 +304,12 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.TextBox result;
+
 
         private System.Windows.Forms.CheckBox checkBox1;
 
