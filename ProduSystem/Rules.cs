@@ -52,7 +52,7 @@ namespace ProduSystem
         {
             Form1 form1 = new Form1();
             string res = "";
-            if (consequence[0] == 'F')
+            if (consequence[0] == 'F' || consequence[0] == 'Z')
                 res = form1.facts[consequence].Text;
             return res;
         }

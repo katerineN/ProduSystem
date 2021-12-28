@@ -50,9 +50,10 @@
             this.checkedListBoxF = new System.Windows.Forms.CheckedListBox();
             this.summary = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.backward = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ErrorLabel
@@ -238,16 +239,16 @@
             this.label8.TabIndex = 49;
             this.label8.Text = "Выбранные факты";
             // 
-            // checkBox1
+            // backward
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(896, 308);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(165, 24);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "Обратный вывод";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.backward.AutoSize = true;
+            this.backward.Location = new System.Drawing.Point(896, 308);
+            this.backward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.backward.Name = "backward";
+            this.backward.Size = new System.Drawing.Size(165, 24);
+            this.backward.TabIndex = 51;
+            this.backward.Text = "Обратный вывод";
+            this.backward.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -269,15 +270,24 @@
             this.label9.TabIndex = 52;
             this.label9.Text = "Вывод";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1089, 304);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(326, 28);
+            this.comboBox1.TabIndex = 54;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1513, 1044);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.backward);
             this.Controls.Add(this.summary);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -304,6 +314,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ComboBox comboBox1;
+
+        private System.Windows.Forms.CheckBox backward;
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label9;
