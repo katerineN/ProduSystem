@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace ProduSystem
 {
@@ -41,6 +42,32 @@ namespace ProduSystem
             }
 
             result += "->" + form1.facts[consequence].Text;
+            return result;
+        }
+
+       
+        
+        //Вывод результата
+        public string PrintBackward(List<string> res, string r)
+        {
+            string result = "";
+            Form1 form1 = new Form1();
+            //проходимся по всем предпосылкам
+            foreach (var p in preconditions)
+            {
+                if (res.Contains(p))
+                {
+                    result += form1.facts[p].Text;
+                    result += (p != preconditions.Last()) ? " , " : "";
+                }
+            }
+            if (form1.facts[consequence].Text == r || ComparePr(res))
+            {
+                result += "->" + form1.facts[consequence].Text;
+                res.Add(form1.facts[consequence].Text);
+            }
+
+            result = null;
             return result;
         }
 

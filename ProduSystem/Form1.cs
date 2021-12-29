@@ -81,7 +81,7 @@ namespace ProduSystem
                     checkedListBoxT.Items.Add("" + item + ": " + facts[item].Text);
                 if (item.First() == 'S')
                 {
-                    if(item == "S42")
+                    if(item == "S42" || item == "S15")
                         checkedListBoxS.Items.Add("" + item + ": " + facts[item].Text, CheckState.Indeterminate);
                     else
                         checkedListBoxS.Items.Add("" + item + ": " + facts[item].Text);
@@ -129,14 +129,16 @@ namespace ProduSystem
         public List<string> FindRules(string id, List<string> rep)
         {
             List<string> res = new List<string>();
-            foreach (var i in rules){
+            foreach (var i in rules)
+            {
                 if (i.Value.consequence == id && !rep.Contains(i.Key))
                     res.Add(i.Key);
             }
+
             return res;
         }
-        
-        
+
+
         //Обратный вывод
         public Tuple<bool, List<string>> BackwardAlgorithm(string resFact)
         {
@@ -205,7 +207,8 @@ namespace ProduSystem
                                 andNodes.Add(rule, new AndNode(rule));
                                 orNode.children.Add(andNodes[rule]);
                                 andNodes[rule].parent.Add(orNode);
-                                resId.Add(rule);
+                                //if(sumFacts.Contains(rule))
+                                    resId.Add(rule);
                                 tree.Push(andNodes[rule]);
                             }
                         }
@@ -298,11 +301,13 @@ namespace ProduSystem
             {
                 var r = Backward();
                 result.Text = "Существует ли погода для такой одежды? " + (r.Item1 ? "Да" : "Нет");
+                result.Text += Environment.NewLine;
 
                 if (r.Item1)
                     foreach (var id in r.Item2.Distinct().OrderByDescending(s => s).ToList())
                         //result.Text += Environment.NewLine + facts[id].Text;
-                        result.Text += Environment.NewLine + rules[id].Print();
+                        //result.Text += Environment.NewLine + rules[id].Print();
+                        PrintB(sumFacts, comboBox1.SelectedItem.ToString().Split(':')[0].Trim(' '));
             }
         }
         
@@ -319,10 +324,17 @@ namespace ProduSystem
             listBox1.Items.Clear();
             result.Text = "";
             summary.Items.Clear();
+            sumFacts.Clear();
             ErrorLabel.Text = "";
             LoadProdSystem();
         }
 
+        public string PrintB(List<string> res, string r)
+        {
+            Forward();
+            return "";
+        }
+        
         //Тут пошли методы, которые перекидывают выбранные факты в нужное окошко
         private void checkedListBoxT_MouseDoubleClick(object sender, MouseEventArgs e)
         {
